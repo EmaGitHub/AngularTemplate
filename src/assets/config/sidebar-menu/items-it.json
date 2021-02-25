@@ -1,0 +1,106 @@
+[
+  {
+    "id": "fileGroups",
+    "label": "label.fileGroups",
+    "isNavigable": true,
+    "level": 1,
+    "url": "/vdr/file-group",
+    "icon": "modx"
+  },
+  {
+    "id": "customers",
+    "label": "label.customers",
+    "isNavigable": true,
+    "level": 1,
+    "url": "/vdr/customer",
+    "icon": "users"
+  },
+  {
+    "label": "Nazione",
+    "isNavigable": false,
+    "level": 1,
+    "children": [
+      {
+        "label": "Regione del Sud",
+        "isNavigable": false,
+        "level": 2,
+        "children": [
+          {
+            "label": "Città fredda",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }, {
+            "label": "Città delle Bestie",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }, {
+            "label": "Piccola Città",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }
+        ]
+      }, {
+        "label": "Regione dell\"Est",
+        "isNavigable": false,
+        "level": 2,
+        "children": [
+          {
+            "label": "Città Lontana",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }, {
+            "label": "Città del Lago",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }
+        ]
+      }
+    ]
+  }, {
+    "label": "Vassallo",
+    "isNavigable": false,
+    "level": 1,
+    "children": [
+      {
+        "label": "Buon Valvassore",
+        "isNavigable": false,
+        "level": 2,
+        "children": [
+          {
+            "label": "Valvassino Invidioso",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }, {
+            "label": "Valvassino Zoppo",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }
+        ]
+      }, {
+        "label": "Cattivo Valvassore",
+        "isNavigable": false,
+        "level": 2,
+        "children": [
+          {
+            "label": "Valvassino Qua",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }, {
+            "label": "Valvassino Lì",
+            "isNavigable": true,
+            "level": 3,
+            "url": "/"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+.mat-icon-button {
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.tooltip-slided {
+    word-break: break-all !important;
+    white-space: normal !important;
+}
+
+table.mat-table tbody tr.mat-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table.mat-table tbody tr.mat-row td.mat-cell {
+    border-top: 1px solid #c8ced3;
+    color: #004977;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+    border-color: #497788;
+    background-color: white;
+  }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #497788;
+}
+
+.mat-header-cell {
+    font-size: 14px !important;
+    font-weight: 600;
+}

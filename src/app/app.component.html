@@ -1,0 +1,10 @@
+<router-outlet></router-outlet>
+
+<app-modal #sessionExpiredModal [closable]="false" class="session-expired">
+    <app-expired-session-modal></app-expired-session-modal>
+</app-modal>
+<app-modal #logoutModal [closable]="true" class="session-expired">
+    <app-logout-modal [logoutSuccessed]="logoutSuccessed"></app-logout-modal>
+</app-modal>
+
+<p-toast [style]="{ marginTop: '1rem', marginRight: '1.5em' }"></p-toast>

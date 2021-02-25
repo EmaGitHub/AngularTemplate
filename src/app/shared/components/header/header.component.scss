@@ -1,0 +1,25 @@
+:host {
+
+    .header-img {
+        background-color: white;
+        border-radius: 100px;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .img {
+            background-image: url('../../../../assets/imgs/logo-findom-f.svg');
+            background-repeat: no-repeat;
+            background-size: 10px;
+            height: 20px;
+            width: 10px;
+            margin-top: 1px;
+        }
+    }
+
+    .nav-link:hover {
+        color: #ffffff;
+    }
+}
