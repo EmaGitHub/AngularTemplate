@@ -1,3 +1,4 @@
+import { Company } from './../../models/Company';
 import { Component, OnInit } from '@angular/core';
 import { merge, of, Subscription } from 'rxjs';
 import { MirrorUserService } from '../../services/mirror-user.service';
@@ -6,7 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { startWith, switchMap, catchError } from 'rxjs/operators';
 import { RestResponse } from 'src/app/shared/domain/http/rest-response';
 import { UtilService } from 'src/app/core/services/utils/util.service';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-mirror-user-list',
@@ -32,6 +33,8 @@ export class MirrorUserListComponent implements OnInit {
   mirrorUsersList: MirrorUser[];
   resultDivVisible: boolean = false;
   isLoading: boolean = false;
+
+  companies: Company[];
 
   private mirrorUsersSubscription: Subscription;
 
