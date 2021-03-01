@@ -31,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BaseComponent,
     // *pages
     LoginComponent,
-    WelcomeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

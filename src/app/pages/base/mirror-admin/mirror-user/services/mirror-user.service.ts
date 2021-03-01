@@ -1,3 +1,4 @@
+import { Company } from './../models/Company';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -17,24 +18,24 @@ export class MirrorUserService {
         const url = this.environmentService.environment.apiVdrUrl + `/users?companyAffiliation=${companyAffiliation}`;
         console.log(`HTTP GET ${url}`);
 
-        var u: MirrorUser = {id: 1, name: "Carlo", lastName: "Rossi", status: true};
-        var a: MirrorUser[] =  [u];
-
-        return of({data: a, totalItems: 0});
+        return this.httpClient.get<RestPagingResponse<MirrorUser[]>>('assets/config/mirror-admin/mirror-users.json');
         this.httpClient.get<RestResponse<MirrorUser>>(url);
     }
 
-    /* public findUsers(companyAffiliation: number): Observable<RestResponse<CustomerDetail>> {
-        const url = this.environmentService.environment.apiAdminUrl + `/users/${customerId}?fileGroupId=${fileGroupId}`;
+    public getCompanies(): Observable<Company[]> {
+        const url = this.environmentService.environment.apiVdrUrl + `/companies`;
         console.log(`HTTP GET ${url}`);
-        return this.httpClient.get<RestResponse<CustomerDetail>>(url);
-    } */
 
-    /* public findCustomers(params: any): Observable<RestPagingResponse<Customer[]>> {
-        const urlParams = Utils.buildUrlParams(params);
-        const url = this.environmentService.environment.apiAdminUrl + `/customer?${urlParams}`;
+        return this.httpClient.get<Company[]>('assets/config/mirror-admin/companies.json');
+        this.httpClient.get<Company[]>(url);
+    }
+
+    public getNextUserId(): Observable<String> {
+        const url = this.environmentService.environment.apiVdrUrl + `/users/nextUserId`;
         console.log(`HTTP GET ${url}`);
-        return this.httpClient.get<RestPagingResponse<Customer[]>>(url);
-    } */
+
+        return this.httpClient.get<String>('assets/config/mirror-admin/nextId.json');
+        this.httpClient.get<String>(url);
+    }
 
 }

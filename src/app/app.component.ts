@@ -1,5 +1,5 @@
 import { Router, NavigationStart } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Lang } from './shared/domain/enums/lang';
@@ -15,6 +15,7 @@ import { UtilService } from './core/services/utils/util.service';
 import { of, Subscription } from 'rxjs';
 import { SideMenuService } from './core/services/utils/side-menu.service';
 import { User } from './shared/model/user.model';
+import { TestService } from './core/services/utils/test.service';
 
 @Component({
   selector: 'app-root',
@@ -103,7 +104,7 @@ export class AppComponent implements OnInit {
 
     this.translate.setDefaultLang(defaultLang);
     this.translate.use(defaultLang);
-    this.languageService.nextLanguageChange(defaultLang);
+    //this.languageService.nextLanguageChange(defaultLang);
   }
 
   private initRefreshSubscription() {
@@ -146,7 +147,7 @@ export class AppComponent implements OnInit {
     this.translate.addLangs([Lang.IT, Lang.EN]);
     this.translate.setDefaultLang(Lang.IT);
     this.translate.use(Lang.IT);
-    this.languageService.nextLanguageChange(Lang.IT);
+    //this.languageService.nextLanguageChange(Lang.IT);
   }
 
   ngOnDestroy() {

@@ -1,4 +1,11 @@
+import { Company } from './../../models/Company';
+import { merge, of, Subscription } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { startWith, switchMap, catchError } from 'rxjs/operators';
+import { RestResponse } from 'src/app/shared/domain/http/rest-response';
+import { MirrorUserService } from '../../services/mirror-user.service';
+import { UtilService } from 'src/app/core/services/utils/util.service';
 
 @Component({
   selector: 'app-mirror-user-form',
@@ -7,11 +14,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MirrorUserFormComponent implements OnInit {
 
-  @Input() action: string;
-  formTitle: string;
-  buttonLabel: string;
+  @Input() isLoading: boolean = false;
+  @Input() error: boolean = false;
 
-  companies: string[] = ["Europol S.r.l.", "Confidence", "Pegasus", "A Zeta S.r.l."];
+  @Input() action: String;
+  formTitle: String;
+  buttonLabel: String;
+
+  @Input() name: String = "-";
+  @Input() lastName: String = "-";
+  @Input() userId: String = "-";
+  @Input() email: String = "-";
+  @Input() companies: Company[];
 
   constructor() { }
 

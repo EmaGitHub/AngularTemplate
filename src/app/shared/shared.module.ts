@@ -63,6 +63,7 @@ import { LoggedUserComponent } from './components/logged-user/logged-user.compon
 import { LogoutModalComponent } from './components/modal/logout-modal/logout-modal.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { OnlyNumberDirective } from './directives/only-number.directive';
+import { ErrorComponent } from './components/error/error.component';
 
 // ngx-translate - AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -108,6 +109,7 @@ const APP_CUSTOM_DATE_FORMATS = {
     ExpiredSessionModalComponent,
     LogoutModalComponent,
     LoggedUserComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -212,6 +214,7 @@ const APP_CUSTOM_DATE_FORMATS = {
     ExpiredSessionModalComponent,
     LogoutModalComponent,
     LoggedUserComponent,
+    ErrorComponent
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'it-IT' },

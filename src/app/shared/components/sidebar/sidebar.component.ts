@@ -6,6 +6,7 @@ import { LanguageService } from 'src/app/core/services/general-config/language.s
 import { LeftMenuService } from 'src/app/core/services/utils/left-menu.service';
 import { User } from '../../model/user.model';
 import { UserService } from 'src/app/core/services/utils/user.service';
+import { TokenService } from 'src/app/core/services/general-config/token.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,10 +22,20 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   private userLoggedSubscription: Subscription;
   private langSubscription: Subscription;
+  private tokenSubscription: Subscription;
 
-  constructor(private languageService: LanguageService, private leftMenuService: LeftMenuService, private userService: UserService) { }
+  constructor(private languageService: LanguageService, private leftMenuService: LeftMenuService,
+             private userService: UserService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    this.tokenSubscription = this.tokenService.tokenAcquiredAsObservable.subscribe(
+      res => {
+        this.loadMenuItems(Lang.IT);
+      },
+      err => {
+        console.error(err);
+      });
+
     this.langSubscription = this.languageService.languageChangeAsObservable.subscribe(
       res => {
         const lang = res && res === Lang.EN ? Lang.EN : Lang.IT;
@@ -50,6 +61,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.userLoggedSubscription) {
       this.userLoggedSubscription.unsubscribe();
+    }
+    if (this.tokenSubscription) {
+      this.tokenSubscription.unsubscribe();
     }
     if (this.langSubscription) {
       this.langSubscription.unsubscribe();

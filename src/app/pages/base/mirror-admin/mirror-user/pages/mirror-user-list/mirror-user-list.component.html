@@ -1,17 +1,13 @@
 <div class="fadeIn">
-    <mat-card class="ccc">
+    <mat-card class="search-form">
         <mat-card-header>
         <mat-card-title>{{formTitle}}</mat-card-title>
         <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
 
-            <div class="loading-shade" *ngIf="isLoading">
-                <mat-spinner *ngIf="isLoading"></mat-spinner>
-            </div>
-
             <form>
-                <mat-form-field appearance="fill" class="select-comp">
+                <mat-form-field appearance="fill" class="select-company">
                     <mat-label>Società investitrice di appartenenza</mat-label>
                     <mat-select>               
                         <mat-option>--</mat-option>
@@ -20,8 +16,18 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <button mat-raised-button (click)="submit()" class="submit-button">{{buttonLabel}}</button>
+                <button mat-raised-button (click)="submit()" [disabled]="isLoading" class="submit-button">{{buttonLabel}}</button>
             </form>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card @insertRemove *ngIf="resultDivVisible" class="result">
+        <mat-card-content>
+
+            <div class="loading-shade" *ngIf="isLoading">
+                <mat-spinner *ngIf="isLoading"></mat-spinner>
+            </div>
+
         </mat-card-content>
     </mat-card>
 </div>

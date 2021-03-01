@@ -7,6 +7,7 @@ import { MirrorUserService } from './services/mirror-user.service';
 import { MirrorUserFormComponent } from './components/mirror-user-form/mirror-user-form.component';
 import { MirrorUserCreateComponent } from './pages/mirror-user-create/mirror-user-create.component';
 import { TestComponent } from './pages/test/test.component';
+import { MirrorUserRowComponent } from './components/mirror-user-row/mirror-user-row.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { TestComponent } from './pages/test/test.component';
     MirrorUserEditComponent,
     MirrorUserCreateComponent,
     MirrorUserFormComponent,
+    MirrorUserRowComponent,
     TestComponent
   ],
   imports: [

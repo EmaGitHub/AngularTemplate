@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Lang } from 'src/app/shared/domain/enums/lang';
 import { TranslateService } from '@ngx-translate/core';
 import { DateAdapter } from '@angular/material/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LanguageService {
 
-    private languageChangeSubject$: BehaviorSubject<any> = new BehaviorSubject<any>({ });
+    private languageChangeSubject$: Subject<any> = new Subject<any>();
 
     constructor(private translate: TranslateService, private dateAdapter: DateAdapter<any>) { }
 

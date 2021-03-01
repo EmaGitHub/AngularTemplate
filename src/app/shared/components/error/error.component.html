@@ -1,0 +1,11 @@
+<div #errorComponent class="error fadeIn"
+        [ngClass]="{ 'no-margin-top': noMarginTop }"
+        [style.position]="position"
+        [style.top]="top">
+    <div class="content">
+        <div class="message">
+            <div class="icon"><i class="fa fa-exclamation-circle"></i></div>
+            <div class="label">{{ message | translate}}</div>
+        </div>
+    </div>
+</div>
