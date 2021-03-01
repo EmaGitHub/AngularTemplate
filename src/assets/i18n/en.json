@@ -1,0 +1,43 @@
+{
+    "label": {
+        "welcome": "Findomestic",
+        "hello": "Welcome",
+        "accessTo": "access to",
+        "companyData": "Company data",
+        "fileGroups": "Portfolio",
+        "customers": "Customers",
+        "language": "Language",
+        "user": "User",
+        "extUsers": "External users",
+        "enter": "Enter",
+        "exit": "Exit"
+    },
+    "action": {
+        "filter": "Filter"
+    },
+    "message": {
+        "success": {
+            "loadSuccessed": "Load successed",
+            "logoutSuccessed": "Logout successed"
+        },
+        "warn": {
+            "noDataFound": "No data found"
+        },
+        "error": {
+            "error": "Error",
+            "genericError": "Error happened",
+            "loginFailed": "Login failed",
+            "dataInconsistencyError": "Data inconsistency error",
+            "logoutFailed": "Logout failed"
+        },
+        "tooltip": {
+        }
+    },
+    "form": {
+        "validationError": {
+            "requiredField": "Required field",
+            "dateBadFormat": "Date wrong format",
+            "mustBeInteger": "Must be an integer"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+<mat-card>
+    <mat-card-header>
+       <mat-card-title>{{formTitle}}</mat-card-title>
+       <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>Nome</mat-label>
+                        <input matInput placeholder="" value="">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>Cognome</mat-label>
+                        <input matInput placeholder="" value="">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>Matricola</mat-label>
+                        <input [readonly]="true" matInput placeholder="" value="MIR0486">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>E-mail</mat-label>
+                        <input matInput placeholder="" value="">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="select-comp">
+                <mat-form-field appearance="fill">
+                    <mat-label>Società investitrice di appartenenza</mat-label>
+                    <mat-select>               
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let company of companies" [value]="company">
+                            {{company}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="submit-div">
+                <button mat-raised-button color="basic" class="submit-button">{{buttonLabel}}</button>
+            </div>  
+        </form>
+    </mat-card-content>
+</mat-card>

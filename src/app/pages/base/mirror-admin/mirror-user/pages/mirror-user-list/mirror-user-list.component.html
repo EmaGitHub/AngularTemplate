@@ -1,0 +1,27 @@
+<div class="fadeIn">
+    <mat-card class="ccc">
+        <mat-card-header>
+        <mat-card-title>{{formTitle}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+            <div class="loading-shade" *ngIf="isLoading">
+                <mat-spinner *ngIf="isLoading"></mat-spinner>
+            </div>
+
+            <form>
+                <mat-form-field appearance="fill" class="select-comp">
+                    <mat-label>Società investitrice di appartenenza</mat-label>
+                    <mat-select>               
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let company of companies" [value]="company">
+                            {{company}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button (click)="submit()" class="submit-button">{{buttonLabel}}</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

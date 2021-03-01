@@ -1,0 +1,26 @@
+<div class="welcome-screen fadeIn">
+
+    <div class="header">
+        <div class="container">Ectx Admin</div>
+    </div>
+
+    <div class="buttons">
+            <div class="navigate-buttons">
+                <div class="navigate-buttons-inner">
+                    <div class="icon-button" (click)="firstPageChooseHandler('showFileGroups')" [routerLink]="['/mirror-admin/file-group']">
+                        <i class="button-icon-inside fa fa-linode"></i>
+                        <span class="lbl">{{'label.enter' | translate}}</span>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        
+        <div class="language-selection">
+            <mat-button-toggle-group class="lang-toggler" name="language" aria-label="language" (change)="changeLangHandler($event)">
+                <mat-button-toggle value="it" [checked]="selectedLanguage === 'it'">It</mat-button-toggle>
+                <mat-button-toggle value="en" [checked]="selectedLanguage === 'en'">En</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        
+    <app-footer></app-footer>
+</div>

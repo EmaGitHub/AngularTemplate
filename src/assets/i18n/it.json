@@ -1,0 +1,43 @@
+{
+    "label": {
+        "welcome": "Ectx Admin",
+        "hello": "Benvenuto",
+        "accessTo": "accedi a",
+        "companyData": "Dati societari",
+        "fileGroups": "Portafogli",
+        "customers": "Clienti",
+        "language": "Lingua",
+        "user": "Utente",
+        "extUsers": "Utenti esterni",
+        "enter": "Entra",
+        "exit": "Esci"
+    },
+    "action": {
+        "filter": "Filtra"
+    },
+    "message": {
+        "success": {
+            "loadSuccessed": "Caricamento avvenuto con successo",
+            "logoutSuccessed": "Disconnessione avvenuta con successo"
+        },
+        "warn": {
+            "noDataFound": "Nessun dato trovato"
+        },
+        "error": {
+            "error": "Errore",
+            "genericError": "Si e' verificato un errore",
+            "loginFailed": "Login fallita",
+            "dataInconsistencyError": "Errore di inconsistenza dati",
+            "logoutFailed": "Disconnessione fallita"
+        },
+        "tooltip": {
+        }
+    },
+    "form": {
+        "validationError": {
+            "requiredField": "Campo obbligatorio",
+            "dateBadFormat": "Data in formato non corretto",
+            "mustBeInteger": "Non e' un numero intero"
+        }
+    }
+}

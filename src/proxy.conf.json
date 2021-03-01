@@ -1,0 +1,47 @@
+{
+  "/api-vdr/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-vdr": ""
+    }
+  },
+  "/api-file-registry/*": {
+    "target": "http://localhost:8082",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-file-registry": ""
+    }
+  },
+  "/api-accounting/*": {
+    "target": "http://localhost:8083",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-accounting": ""
+    }
+  },
+  "/api-doc/*": {
+    "target": "http://localhost:8084",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-doc": ""
+    }
+  },
+  "/api-bi/*": {
+    "target": "http://localhost:8085",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-bi": ""
+    }
+  }
+}
