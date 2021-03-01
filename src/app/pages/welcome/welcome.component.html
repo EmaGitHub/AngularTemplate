@@ -1,46 +1,26 @@
-<div class="welcome-screen">
-    <div class="content text-center fadeIn">
-        <div class="header text-center">
-            <div class="head">
-                <div class="header-img">
-                    <div class="img"></div>
-                </div>
-                <div class="header-text">{{'label.welcome' | translate}}</div>
-            </div>
-        </div>
+<div class="welcome-screen fadeIn">
 
-        <div class="buttons fadeIn">
-            <div class="avatar-container">
-                <div class="findom-avatar"></div> 
-            </div>
-            <div class="name">{{'label.hello' | translate}} {{userFullName ? userFullName : '-'}}</div>
-            <div class="access">{{'label.accessTo' | translate}}</div> 
+    <div class="header">
+        <div class="container">Ectx Admin</div>
+    </div>
 
+    <div class="buttons">
             <div class="navigate-buttons">
                 <div class="navigate-buttons-inner">
-                    <div class="icon-button" (click)="firstPageChooseHandler('fileGroups')" [routerLink]="['/vdr']">
-                        <i class="button-icon-inside fa fa-modx"></i>
-                        <span class="lbl">{{'label.fileGroups' | translate}}</span>
-                    </div>
-                    
-                    <div class="icon-button" (click)="firstPageChooseHandler('customers')" [routerLink]="['/vdr/customer']">
-                        <i class="button-icon-inside fa fa-users"></i>
-                        <span class="lbl">{{'label.customers' | translate}}</span>
+                    <div class="icon-button" (click)="firstPageChooseHandler('showFileGroups')" [routerLink]="['/mirror-admin/file-group']">
+                        <i class="button-icon-inside fa fa-linode"></i>
+                        <span class="lbl">{{'label.enter' | translate}}</span>
                     </div>
                 </div>                
             </div>
         </div>
         
-        <div id="langToggler" class="language-selection">
-            <div class="language-selection-inner">
-                <mat-button-toggle-group class="lang-toggler" name="language" aria-label="language" (change)="changeLangHandler($event)">
-                    <mat-button-toggle value="it" [checked]="selectedLanguage === 'it'">It</mat-button-toggle>
-                    <mat-button-toggle value="en" [checked]="selectedLanguage === 'en'">En</mat-button-toggle>
-                </mat-button-toggle-group>
-            </div>
+        <div class="language-selection">
+            <mat-button-toggle-group class="lang-toggler" name="language" aria-label="language" (change)="changeLangHandler($event)">
+                <mat-button-toggle value="it" [checked]="selectedLanguage === 'it'">It</mat-button-toggle>
+                <mat-button-toggle value="en" [checked]="selectedLanguage === 'en'">En</mat-button-toggle>
+            </mat-button-toggle-group>
         </div>
         
-        <app-footer></app-footer>
-    </div>
+    <app-footer></app-footer>
 </div>
-

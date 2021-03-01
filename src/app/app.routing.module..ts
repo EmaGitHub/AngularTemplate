@@ -4,22 +4,12 @@ import { BaseComponent } from './pages/base/base.component';
 import { LoginComponent } from './pages/login/login.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { FileGroupListComponent } from './pages/base/mirror-admin/file-group/pages/file-group-list/file-group-list.component';
-import { ExtUserListComponent } from './pages/base/mirror-admin/mirror-ext-user/pages/ext-user-list/ext-user-list.component';
-import { ExtUserEditComponent } from './pages/base/mirror-admin/mirror-ext-user/pages/ext-user-edit/ext-user-edit.component';
+import { MirrorUserCreateComponent } from './pages/base/mirror-admin/mirror-user/pages/mirror-user-create/mirror-user-create.component';
+import { MirrorUserEditComponent } from './pages/base/mirror-admin/mirror-user/pages/mirror-user-edit/mirror-user-edit.component';
+import { MirrorUserListComponent } from './pages/base/mirror-admin/mirror-user/pages/mirror-user-list/mirror-user-list.component';
+import { TestComponent } from './pages/base/mirror-admin/mirror-user/pages/test/test.component';
 
 const routes: Routes = [
-    // {
-    //     path: '',
-    //     component: BaseComponent,
-    //     children: [
-    //         { path: '', redirectTo: 'file-group', pathMatch: 'full' },
-    //         { path: 'file-group', loadChildren: () => import('./pages/base/mirror-admin/file-group/file-group.module').then(m => m.FileGroupModule) },
-    //         { path: 'customer', loadChildren: () => import('./pages/base/mirror-admin/customer/customer.module').then(m => m.CustomerModule) },
-    //         { path: 'customer/file-group/:fileGroupId', loadChildren: () => import('./pages/base/mirror-admin/customer/customer.module').then(m => m.CustomerModule) },
-    //         { path: 'file', loadChildren: () => import('./pages/base/mirror-admin/file/file.module').then(m => m.FileModule) }
-    //     ]
-    // },
-
     {
         path: '',
         component: WelcomeComponent,
@@ -29,11 +19,13 @@ const routes: Routes = [
         component: BaseComponent,
         children: [
             {
-                path: 'ext-user',
+                path: 'mirror-user',
                 children: [
                     { path: '', redirectTo: 'list', pathMatch: 'full' },
-                    { path: 'list', component: ExtUserListComponent },
-                    { path: 'edit', component: ExtUserEditComponent }
+                    { path: 'list', component: MirrorUserListComponent },
+                    { path: 'edit', component: MirrorUserEditComponent },
+                    { path: 'create', component: MirrorUserCreateComponent },
+                    { path: 'test', component: TestComponent }
                 ]
             },
             {

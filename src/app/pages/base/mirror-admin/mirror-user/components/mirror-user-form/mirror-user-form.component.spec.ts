@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExtUserEditComponent } from './ext-user-edit.component';
+import { MirrorUserFormComponent } from './mirror-user-form.component';
 
-describe('ExtUserEditComponent', () => {
-  let component: ExtUserEditComponent;
-  let fixture: ComponentFixture<ExtUserEditComponent>;
+describe('MirrorUserFormComponent', () => {
+  let component: MirrorUserFormComponent;
+  let fixture: ComponentFixture<MirrorUserFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExtUserEditComponent ]
+      declarations: [ MirrorUserFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExtUserEditComponent);
+    fixture = TestBed.createComponent(MirrorUserFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

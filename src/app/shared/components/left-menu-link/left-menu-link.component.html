@@ -1,4 +1,4 @@
-<div class="menu-item" [class.open]="open" [class.closed]="closed">
+<div *ngIf="visibleToUser" class="menu-item" [class.open]="open" [class.closed]="closed">
     <!-- clickable link -->
     <div class="item {{getLevelCssClass()}}"
             *ngIf="!config.isNavigable"
@@ -23,9 +23,9 @@
 </div>
     
 <ng-template #buttonInternal>
-    <div class="label">
+    <div class="label open-close-icon">
         <i *ngIf="config.icon"
-            class="icon mr1 {{ getIconClass() }}"></i>
+            class="menu-item-icon icon mr1 {{ getIconClass() }}"></i>
         {{config.label | translate}}
     </div>
     <div class="open-close-icon"><i *ngIf="config.children" class="fa fa-chevron-down"></i></div>

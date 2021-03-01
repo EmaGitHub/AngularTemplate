@@ -112,7 +112,7 @@ export class AppComponent implements OnInit {
         let browserRefresh = !this.router.navigated;
         if (browserRefresh) {
           let lastSidemenuLinkSelected = this.sideMenuService.getSidemenuLinkId();
-          this.sideMenuService.firstPageChoose(lastSidemenuLinkSelected);
+          this.sideMenuService.pageChoose(lastSidemenuLinkSelected);
         }
       }
     });

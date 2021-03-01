@@ -4,6 +4,7 @@
     "label": "label.fileGroups",
     "isNavigable": true,
     "level": 1,
+    "role": 1,
     "url": "/vdr/file-group",
     "icon": "modx"
   }, {
@@ -11,6 +12,7 @@
     "label": "label.customers",
     "isNavigable": true,
     "level": 1,
+    "role": 2,
     "url": "/vdr/customer",
     "icon": "users"
   },

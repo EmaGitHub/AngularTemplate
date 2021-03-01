@@ -10,13 +10,7 @@
                 <!-- user name -->
                 <ng-container>
                     <div class="account-logged-box">
-                        <div class="account-icon">
-                            <i class="fa fa-user-circle-o"></i>
-                        </div>
-                        <div class="name">
-                            <span *ngIf="user" class="name-inner">{{this.user.name}} {{this.user.surname}}</span>
-                            <span *ngIf="!user" class="name-inner"> - </span>
-                        </div>
+                        <div class="admin-label" [routerLink]="['/']">Ectx Admin</div>
                     </div>
                 </ng-container>
                 <ng-container *ngFor="let item of menuItems">

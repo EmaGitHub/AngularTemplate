@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { LeftMenuLink } from '../../domain/components/left-menu-link';
 import { Subscription } from 'rxjs';
@@ -13,23 +14,41 @@ export class LeftMenuLinkComponent implements OnInit, OnDestroy {
 
   @Input('config') config: LeftMenuLink;
 
+  userRoles: number[] = [1, 2];
+  visibleToUser: boolean = false;
+
   open = false;
   closed = true;
 
   active = false;
 
-  private firstPageChooseSubscription: Subscription;
+  private pageChooseSubscription: Subscription;
   private menuItemClickSubscription: Subscription;
   private navigableMenuItemClickSubscription: Subscription;
 
   public subMenuMaxHeight: number = 0;
   @Output() heightChange: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private leftMenuService: LeftMenuService, private sidemenuService: SideMenuService) { }
+  constructor(private leftMenuService: LeftMenuService, private sidemenuService: SideMenuService) {   }
 
   ngOnInit(): void {
-    this.firstPageChooseSubscription = this.sidemenuService.navigationTofirstPageSubjectAsObservable.subscribe(
+    this.pageChooseSubscription = this.sidemenuService.navigationTofirstPageSubjectAsObservable.subscribe(
       leftMenuLinkId => {
+
+        let ancestorArray = this.sidemenuService.getSidemenuAncestorIds();
+
+        // gestione apertura antenati non navigabili
+        if (ancestorArray[0] == this.config.id) {
+
+          // remove first elem
+          ancestorArray.shift();
+          this.sidemenuService.saveSidemenuLinkTreeInLocalStorage(ancestorArray);
+          setTimeout(() => {
+            this.toggle();
+          }, 200);
+        }
+
+        // gestione selezione link navigabile
         if (leftMenuLinkId && this.config.id === leftMenuLinkId) {
           this.active = true;
           return;
@@ -67,11 +86,12 @@ export class LeftMenuLinkComponent implements OnInit, OnDestroy {
 
     this.navigableMenuItemClickSubscription = this.leftMenuService.navigableMenuItemClickSubjectAsObservable.subscribe(
       (selectedLink: LeftMenuLink) => {
-        if (selectedLink.label === this.config.label) {
+
+        if (selectedLink.label === this.config.label && selectedLink.isNavigable == true) {
           this.active = true;
         } else {
           this.active = false;
-          if (!this.isSelectedLinkChild(selectedLink)) {
+          if (!this.isSelectedLinkChild(selectedLink) && selectedLink.isNavigable == false) {
             this.open = false;
             this.closed = true;
           }
@@ -81,6 +101,15 @@ export class LeftMenuLinkComponent implements OnInit, OnDestroy {
         console.error(err);
       }
     );
+
+    this.checkUserRole();
+  }
+
+  checkUserRole() {
+    for (var role of this.config.roles) {
+      if (this.userRoles.includes(role))
+        this.visibleToUser = true;
+    }
   }
 
   openSubMenuHandler() {
@@ -137,8 +166,8 @@ export class LeftMenuLinkComponent implements OnInit, OnDestroy {
 
   activeMenuItemHandler() {
     this.leftMenuService.nextNavigableMenuItemClick(this.config);
-    this.sidemenuService.sidemenuLinkSelected(this.config.id);
-    console.log("sidemenu item clicked "+JSON.stringify(this.config.id));
+    this.sidemenuService.saveSidemenuLinkIdInLocalStorage(this.config.id);
+    console.log("sidemenu navigable item clicked "+JSON.stringify(this.config.id));
   }
 
   getLevelCssClass() {
@@ -168,8 +197,8 @@ export class LeftMenuLinkComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.firstPageChooseSubscription) {
-      this.firstPageChooseSubscription.unsubscribe();
+    if (this.pageChooseSubscription) {
+      this.pageChooseSubscription.unsubscribe();
     }
     if (this.menuItemClickSubscription) {
       this.menuItemClickSubscription.unsubscribe();

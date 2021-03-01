@@ -1,6 +1,6 @@
 {
     "label": {
-        "welcome": "Findomestic",
+        "welcome": "Ectx Admin",
         "hello": "Benvenuto",
         "accessTo": "accedi a",
         "companyData": "Dati societari",
@@ -8,6 +8,8 @@
         "customers": "Clienti",
         "language": "Lingua",
         "user": "Utente",
+        "extUsers": "Utenti esterni",
+        "enter": "Entra",
         "exit": "Esci"
     },
     "action": {

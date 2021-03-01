@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExtUserListComponent } from './ext-user-list.component';
+import { MirrorUserListComponent } from './mirror-user-list.component';
 
-describe('ExtUserListComponent', () => {
-  let component: ExtUserListComponent;
-  let fixture: ComponentFixture<ExtUserListComponent>;
+describe('MirrorUserListComponent', () => {
+  let component: MirrorUserListComponent;
+  let fixture: ComponentFixture<MirrorUserListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExtUserListComponent ]
+      declarations: [ MirrorUserListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExtUserListComponent);
+    fixture = TestBed.createComponent(MirrorUserListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

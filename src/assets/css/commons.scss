@@ -138,13 +138,13 @@ scroll {
   
   .drop-button {
     background: none;
-    color: #f1f1f1;
-    font-size: 14px;
+    color: #0f78b7;
+    font-size: 16px;
     border: none;
     cursor: pointer;
 
     &:hover {
-      color: #ffffff;
+      color: #4dbcff;
     }
 
     &:focus {
@@ -220,26 +220,5 @@ scroll {
         }
       }
      }
-  }
-}
-
-/* lang toggler in welcome page */
-.welcome-screen {
-
-  #langToggler.language-selection {
-
-    .language-selection-inner {
-
-      .mat-button-toggle-label-content {
-          line-height: 24px !important;
-          font-size: 12px !important;
-      }
-
-      .mat-button-toggle-checked {
-        background-color: #2b81ca;
-        border: 1px solid #2b81ca;
-        color: #ffffff !important;
-      }
-    }
   }
 }

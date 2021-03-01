@@ -18,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { FileGroupModule } from './pages/base/mirror-admin/file-group/file-group.module';
-import { MirrorExtUserModule } from './pages/base/mirror-admin/mirror-ext-user/mirror-ext-user.module';
+import { MirrorUserModule } from './pages/base/mirror-admin/mirror-user/mirror-user.module';
 
 // ngx-translate - required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,33 +32,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     // *pages
     LoginComponent,
     WelcomeComponent,
-    // *** file group components
-    // FileGroupLandingPageComponent,
-    // FileGroupListComponent,
-    // *** customer components
-    // CustomerListComponent,
-    // CustomerDetailPageComponent,
-    // CustomerDataComponent, 
-    // CustomerNotesComponent, 
-    // CustomerFileListComponent, 
-    // DocumentsComponent,
-    // NegativesManagingComponent,
-    // CadastralSurveyComponent,
-    // LegalManagementComponent,
-    // ExcerptRequestComponent,
-    // *** file components
-    // FileDetailPageComponent,
-    // FileDataComponent,
-    // FileMovementComponent,
-    // BalanceRequestComponent,
-    // TransfersComponent,
-    // PlanTypeHomeComponent,
-    // PlanTypeAccGarComponent,
-    // FileAccountingDataComponent,
-    // FileManagementHistoryComponent,
-    // FileBiDataComponent,
-    // FileOrientationComponent,
-    // VisComDocumentsComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     // **UTENTI
-    MirrorExtUserModule,
+    MirrorUserModule,
     // **LOTTI
     FileGroupModule,
     // *ngx-translate

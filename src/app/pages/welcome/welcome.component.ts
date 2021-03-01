@@ -35,7 +35,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   public firstPageChooseHandler(sidebarMenuLinkId: string) {
-    this.sideMenuService.firstPageChoose(sidebarMenuLinkId);
+    this.sideMenuService.pageChoose(sidebarMenuLinkId);
   }
 
   public changeLangHandler(langToggleChange: MatButtonToggleChange) {

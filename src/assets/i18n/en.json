@@ -8,6 +8,8 @@
         "customers": "Customers",
         "language": "Language",
         "user": "User",
+        "extUsers": "External users",
+        "enter": "Enter",
         "exit": "Exit"
     },
     "action": {
