@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoDataFoundComponent } from './no-data-found.component';
+import { StatusMessageComponent } from './status-message.component';
 
-describe('NoDataFoundComponent', () => {
-  let component: NoDataFoundComponent;
-  let fixture: ComponentFixture<NoDataFoundComponent>;
+describe('StatusMessageComponent', () => {
+  let component: StatusMessageComponent;
+  let fixture: ComponentFixture<StatusMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoDataFoundComponent ]
+      declarations: [ StatusMessageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NoDataFoundComponent);
+    fixture = TestBed.createComponent(StatusMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

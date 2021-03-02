@@ -1,0 +1,10 @@
+<div #noDataFoundComponent class="status-message fadeIn">
+    <div class="content">
+        <div class="message">
+            <div class="icon" [ngClass]="(level=='warn')?'warn-icon':'err-icon'">
+                <i class="fa" [ngClass]="(level=='warn')?'fa-warning':'fa-exclamation-circle'"></i>
+            </div>
+            <div class="label">{{ message | translate}}</div>
+        </div>
+    </div>
+</div>

@@ -53,7 +53,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core';
-import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NoDatePipe } from './pipes/no-date.pipe';
 import { ExpiredSessionModalComponent } from './components/modal/expired-session-modal/expired-session-modal.component';
@@ -63,7 +62,8 @@ import { LoggedUserComponent } from './components/logged-user/logged-user.compon
 import { LogoutModalComponent } from './components/modal/logout-modal/logout-modal.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { OnlyNumberDirective } from './directives/only-number.directive';
-import { ErrorComponent } from './components/error/error.component';
+import { StatusMessageComponent } from './components/status-message/status-message.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // ngx-translate - AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -104,12 +104,12 @@ const APP_CUSTOM_DATE_FORMATS = {
     PercentagePipe,
     // *components
     PaginatorComponent,
-    NoDataFoundComponent,
     ModalComponent,
     ExpiredSessionModalComponent,
     LogoutModalComponent,
     LoggedUserComponent,
-    ErrorComponent,
+    StatusMessageComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -209,12 +209,12 @@ const APP_CUSTOM_DATE_FORMATS = {
     PdfViewerModule,
     // *components
     PaginatorComponent,
-    NoDataFoundComponent,
     ModalComponent,
     ExpiredSessionModalComponent,
     LogoutModalComponent,
     LoggedUserComponent,
-    ErrorComponent
+    StatusMessageComponent,
+    SpinnerComponent
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'it-IT' },

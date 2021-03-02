@@ -13,7 +13,8 @@
         "exit": "Esci"
     },
     "action": {
-        "filter": "Filtra"
+        "filter": "Filtra",
+        "refreshPage": "Carica di nuovo"
     },
     "message": {
         "success": {
