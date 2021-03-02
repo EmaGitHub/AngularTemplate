@@ -1,11 +1,6 @@
 import { Company } from './../../models/Company';
-import { merge, of, Subscription } from 'rxjs';
-import { Component, Input, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { startWith, switchMap, catchError } from 'rxjs/operators';
-import { RestResponse } from 'src/app/shared/domain/http/rest-response';
-import { MirrorUserService } from '../../services/mirror-user.service';
-import { UtilService } from 'src/app/core/services/utils/util.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MirrorUser } from '../../models/MirrorUser';
 
 @Component({
   selector: 'app-mirror-user-form',
@@ -17,15 +12,18 @@ export class MirrorUserFormComponent implements OnInit {
   @Input() isLoading: boolean = false;
   @Input() error: boolean = false;
 
-  @Input() action: String;
-  formTitle: String;
-  buttonLabel: String;
+  @Input() action: string;
+  formTitle: string;
+  buttonLabel: string;
 
-  @Input() name: String = "-";
-  @Input() lastName: String = "-";
-  @Input() userId: String = "-";
-  @Input() email: String = "-";
+  @Input() name: string = "";
+  @Input() lastName: string = "";
+  @Input() userId: string = "";
+  @Input() email: string = "";
   @Input() companies: Company[];
+  selectedCompany: Company;
+
+  @Output() executeAction: EventEmitter<MirrorUser> = new EventEmitter<MirrorUser>();
 
   constructor() { }
 
@@ -38,6 +36,17 @@ export class MirrorUserFormComponent implements OnInit {
       this.formTitle = "Modifica utente società esterna soc. investitrice";
       this.buttonLabel = "Modifica utente";
     }
+  }
+
+  public submit() {
+    let user: MirrorUser = new MirrorUser();
+    user.name = this.name;
+    user.lastName = this.lastName;
+    user.id = this.userId;
+    user.email = this.email;
+    if (this.selectedCompany)
+      user.companyCode = this.selectedCompany.companyCode;
+    this.executeAction.emit(user);
   }
 
 }

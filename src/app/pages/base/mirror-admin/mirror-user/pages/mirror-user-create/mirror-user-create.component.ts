@@ -7,6 +7,7 @@ import { startWith, switchMap, catchError } from 'rxjs/operators';
 import { UtilService } from 'src/app/core/services/utils/util.service';
 import { RestResponse } from 'src/app/shared/domain/http/rest-response';
 import { MirrorUserService } from '../../services/mirror-user.service';
+import { useAnimation } from '@angular/animations';
 
 @Component({
   selector: 'app-mirror-user-create',
@@ -45,7 +46,7 @@ export class MirrorUserCreateComponent implements OnInit {
           })
         );
       })
-    ).subscribe((res: RestResponse<String>) => {
+    ).subscribe((res: RestResponse<string>) => {
       console.log('success on load sequence next UserId ', res);
       this.subscriptionExecuted++;
       if (this.subscriptionExecuted == 2)
@@ -81,7 +82,7 @@ export class MirrorUserCreateComponent implements OnInit {
     ).subscribe((res: RestResponse<Company[]>) => {
       console.log('success on load companies ', res);
       this.subscriptionExecuted++;
-      if (this.subscriptionExecuted == 2  )
+      if (this.subscriptionExecuted == 2 )
         this.isLoading = false;
 
       if (res) {
@@ -94,6 +95,18 @@ export class MirrorUserCreateComponent implements OnInit {
         this.utilService.manageRestResponseError(err);
       }
     );
+  }
+
+  createUser(user: MirrorUser) {
+    console.log("creating user "+JSON.stringify(user));
+    this.mirrorUserService.createUser(user).subscribe(
+      (res: any) => {
+
+      },
+      (err: Error) => {
+
+      }
+    )
   }
 
 }

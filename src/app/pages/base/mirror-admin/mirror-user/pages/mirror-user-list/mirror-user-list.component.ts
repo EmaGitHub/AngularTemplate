@@ -23,7 +23,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
         animate('1s', style({ opacity: 0 }))
       ])
     ]),
-  ],
+  ]
 })
 export class MirrorUserListComponent implements OnInit {
 
@@ -75,7 +75,6 @@ export class MirrorUserListComponent implements OnInit {
 
       }, 2000);
 
-      
     },
       (err: HttpErrorResponse) => {
         this.isLoading = false;

@@ -17,13 +17,13 @@
                 <div class="col-6">
                     <mat-form-field>
                         <mat-label>Nome</mat-label>
-                        <input matInput placeholder="" value="{{name}}">
+                        <input [(ngModel)]="name" matInput placeholder="" value="{{name}}" name="name">
                     </mat-form-field>
                 </div>
                 <div class="col-6">
                     <mat-form-field>
                         <mat-label>Cognome</mat-label>
-                        <input matInput placeholder="" value="{{lastName}}">
+                        <input [(ngModel)]="lastName" matInput placeholder="" value="{{lastName}}" name="lastName">
                     </mat-form-field>
                 </div>
             </div>
@@ -31,20 +31,20 @@
                 <div class="col-6">
                     <mat-form-field>
                         <mat-label>Matricola</mat-label>
-                        <input [readonly]="true" matInput placeholder="" value={{userId}}>
+                        <input [(ngModel)]="userId" [readonly]="true" matInput placeholder="" value={{userId}} name="userId">
                     </mat-form-field>
                 </div>
                 <div class="col-6">
                     <mat-form-field>
                         <mat-label>E-mail</mat-label>
-                        <input matInput placeholder="" value="{{email}}">
+                        <input [(ngModel)]="email" matInput placeholder="" value="{{email}}" name="email">
                     </mat-form-field>
                 </div>
             </div>
             <div class="select-comp">
                 <mat-form-field appearance="fill">
                     <mat-label>Società investitrice di appartenenza</mat-label>
-                    <mat-select>               
+                    <mat-select [(ngModel)]="selectedCompany" name="selectedCompany">               
                         <mat-option>--</mat-option>
                         <mat-option *ngFor="let company of companies" [value]="company">
                             {{company.name}}
@@ -53,7 +53,7 @@
                 </mat-form-field>
             </div>
             <div class="submit-div">
-                <button mat-raised-button color="basic" class="submit-button">{{buttonLabel}}</button>
+                <button mat-raised-button (click)="submit()" color="basic" class="submit-button">{{buttonLabel}}</button>
             </div>  
         </form>
     </mat-card-content>

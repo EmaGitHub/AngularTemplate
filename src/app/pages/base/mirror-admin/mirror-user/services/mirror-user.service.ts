@@ -38,4 +38,10 @@ export class MirrorUserService {
         this.httpClient.get<String>(url);
     }
 
+    public createUser(user: MirrorUser): Observable<any> {
+        const url = this.environmentService.environment.apiVdrUrl + `/create`;
+        console.log(`HTTP POST ${url}`);
+
+        return this.httpClient.post(url, user);
+    }
 }
