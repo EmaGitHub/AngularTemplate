@@ -11,7 +11,7 @@ export class UserService {
     constructor(private environmentService: EnvironmentService, private httpClientService: HttpClientService) { }
 
     public findLoggedUserData(): Observable<RestResponse<User>> {
-        const url = this.environmentService.environment.apiVdrUrl + `/login-data`;
+        const url = this.environmentService.environment.apiMirrorUser + `/login-data`;
         console.log(`HTTP GET ${url}`);
         return this.httpClientService.getWithRetry<RestResponse<User>>(url, 3);
     }

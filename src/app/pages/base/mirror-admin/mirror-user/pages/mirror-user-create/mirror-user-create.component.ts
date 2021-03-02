@@ -35,7 +35,7 @@ export class MirrorUserCreateComponent implements OnInit {
       switchMap(() => {
         this.isLoading = true;
 
-        return this.mirrorUserService.getNextUserId().pipe(
+        return this.mirrorUserService.getMirId().pipe(
           catchError((err: HttpErrorResponse) => {
             console.error('error loading sequence next UserId ', err);
 

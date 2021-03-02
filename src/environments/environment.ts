@@ -7,11 +7,7 @@ import { Environment } from 'src/app/shared/domain/utils/environment.model';
 export const environment: Environment = {
   production: false,
   debuglevel: 'info',
-  apiVdrUrl: '/api-vdr',
-  apiFileRegistryUrl: '/api-file-registry',
-  apiAccountingUrl: '/api-accounting',
-  apiDocUrl: '/api-doc',
-  apiBiUrl: '/api-bi'
+  apiMirrorUser: '/mirror/user'
 };
 
 /*
