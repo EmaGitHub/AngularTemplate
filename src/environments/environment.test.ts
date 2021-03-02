@@ -6,5 +6,5 @@ const apiBaseUrl = '';
 export const environment: Environment = {
   production: true,
   debuglevel: 'error',
-  apiMirrorUser: '/mirror/user'
+  apiUserManager: '/ectx-user-manager-srv'
 };

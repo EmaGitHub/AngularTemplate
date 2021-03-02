@@ -1,4 +1,4 @@
 export interface Company {
-    name: string,
-    companyCode: number
+    denomination: string,
+    investorCompanyCode: number
 }

@@ -47,7 +47,7 @@
                     <mat-select [(ngModel)]="selectedCompany" name="selectedCompany">               
                         <mat-option>--</mat-option>
                         <mat-option *ngFor="let company of companies" [value]="company">
-                            {{company.name}}
+                            {{company.denomination}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>

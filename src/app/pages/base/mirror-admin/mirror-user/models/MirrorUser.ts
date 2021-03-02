@@ -1,9 +1,9 @@
 export class MirrorUser {
 
     name: string;
-    lastName: string;
-    id: string;
+    surname: string;
+    userId: string;
     email: string;
-    status: boolean;
     companyCode: number;
+    status: boolean;
 }

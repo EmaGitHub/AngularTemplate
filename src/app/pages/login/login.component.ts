@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     this.credentials.password = model.passwordGroup;
 
 
-    const url = this.environmentService.environment.apiMirrorUser + '/authenticate';
+    const url = this.environmentService.environment.apiUserManager + '/authenticate';
 
     this.loginSubscription = this.httpClient.post<any>(url, this.credentials).subscribe(
       res => {

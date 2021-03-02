@@ -34,7 +34,7 @@ export class LeftMenuService {
 
     loadSidebarMenuItems(lang?: string): Observable<LeftMenuLink[]> {
         const _lang = lang && lang === Lang.EN ? Lang.EN : Lang.IT; 
-        const baseUrl = this.environmentService.environment.apiMirrorUser;
+        const baseUrl = this.environmentService.environment.apiUserManager;
         const url = `${baseUrl}/sidebar-menu-item?lang=${lang}`;
         console.log('get', url)
         // return this.httpClient.get<LeftMenuLink[]>(url);

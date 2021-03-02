@@ -7,7 +7,7 @@ import { Environment } from 'src/app/shared/domain/utils/environment.model';
 export const environment: Environment = {
   production: false,
   debuglevel: 'info',
-  apiMirrorUser: '/mirror/user'
+  apiUserManager: '/ectx-user-manager-srv'
 };
 
 /*

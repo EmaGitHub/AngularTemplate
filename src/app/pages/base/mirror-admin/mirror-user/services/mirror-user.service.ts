@@ -15,7 +15,7 @@ export class MirrorUserService {
     constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) { }
 
     public findUsers(companyAffiliation: number): Observable<RestPagingResponse<MirrorUser[]>> {
-        const url = this.environmentService.environment.apiMirrorUser + `/users?companyAffiliation=${companyAffiliation}`;
+        const url = this.environmentService.environment.apiUserManager + `/users?companyAffiliation=${companyAffiliation}`;
         console.log(`HTTP GET ${url}`);
 
         return this.httpClient.get<RestPagingResponse<MirrorUser[]>>('assets/config/mirror-admin/mirror-users.json');
@@ -23,23 +23,23 @@ export class MirrorUserService {
     }
 
     public getCompanies(): Observable<Company[]> {
-        const url = this.environmentService.environment.apiMirrorUser + `/investorCompany`;
+        const url = this.environmentService.environment.apiUserManager + `/mirror/user/investorCompany`;
         console.log(`HTTP GET ${url}`);
 
-        return this.httpClient.get<Company[]>('assets/config/mirror-admin/companies.json');
-        this.httpClient.get<Company[]>(url);
+        //return this.httpClient.get<Company[]>('assets/config/mirror-admin/companies.json');
+        return this.httpClient.get<Company[]>(url);
     }
 
     public getMirId(): Observable<String> {
-        const url = this.environmentService.environment.apiMirrorUser + `/mirId`;
+        const url = this.environmentService.environment.apiUserManager + `/mirror/user/mirId`;
         console.log(`HTTP GET ${url}`);
 
-        return this.httpClient.get<String>('assets/config/mirror-admin/nextId.json');
-        this.httpClient.get<String>(url);
+        //return this.httpClient.get<String>('assets/config/mirror-admin/nextId.json');
+        return this.httpClient.get<String>(url);
     }
 
     public createUser(user: MirrorUser): Observable<any> {
-        const url = this.environmentService.environment.apiMirrorUser + `/create`;
+        const url = this.environmentService.environment.apiUserManager + `/mirror/user`;
         console.log(`HTTP POST ${url}`);
 
         return this.httpClient.post(url, user);
