@@ -41,11 +41,11 @@ export class MirrorUserFormComponent implements OnInit {
   public submit() {
     let user: MirrorUser = new MirrorUser();
     user.name = this.name;
-    user.lastName = this.lastName;
-    user.id = this.userId;
+    user.surname = this.lastName;
+    user.userId = this.userId;
     user.email = this.email;
     if (this.selectedCompany)
-      user.companyCode = this.selectedCompany.companyCode;
+      user.companyCode = this.selectedCompany.investorCompanyCode;
     this.executeAction.emit(user);
   }
 

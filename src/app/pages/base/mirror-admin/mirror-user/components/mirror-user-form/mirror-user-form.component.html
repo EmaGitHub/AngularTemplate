@@ -5,12 +5,9 @@
     </mat-card-header>
     <mat-card-content>
 
-        
-        <div class="loading-shade" *ngIf="isLoading">
-            <mat-spinner *ngIf="isLoading"></mat-spinner>
-        </div>
+        <app-spinner *ngIf="isLoading"></app-spinner>
 
-        <app-error [position]="'inherit'" *ngIf="error"></app-error>
+        <app-status-message [message]="'message.error.genericError'" *ngIf="error"></app-status-message>
 
         <form *ngIf="!error">
             <div class="row">

@@ -5,7 +5,6 @@
         <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-
             <form>
                 <mat-form-field appearance="fill" class="select-company">
                     <mat-label>Società investitrice di appartenenza</mat-label>
@@ -23,10 +22,9 @@
 
     <mat-card @insertRemove *ngIf="resultDivVisible" class="result">
         <mat-card-content>
-
-            <div @insertRemove class="loading-shade" *ngIf="isLoading">
-                <mat-spinner></mat-spinner>
-            </div>
+            
+            <app-spinner *ngIf="isLoading"></app-spinner>
+            <app-status-message  *ngIf="!isLoading" [message]="'message.warn.noDataFound'"></app-status-message>
 
         </mat-card-content>
     </mat-card>

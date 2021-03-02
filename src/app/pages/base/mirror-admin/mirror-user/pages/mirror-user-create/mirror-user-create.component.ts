@@ -7,7 +7,6 @@ import { startWith, switchMap, catchError } from 'rxjs/operators';
 import { UtilService } from 'src/app/core/services/utils/util.service';
 import { RestResponse } from 'src/app/shared/domain/http/rest-response';
 import { MirrorUserService } from '../../services/mirror-user.service';
-import { useAnimation } from '@angular/animations';
 
 @Component({
   selector: 'app-mirror-user-create',
@@ -30,10 +29,11 @@ export class MirrorUserCreateComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.isLoading = true;
+
     this.nextUserIdSubscription = merge().pipe(
       startWith({}),
       switchMap(() => {
-        this.isLoading = true;
 
         return this.mirrorUserService.getMirId().pipe(
           catchError((err: HttpErrorResponse) => {
@@ -53,8 +53,8 @@ export class MirrorUserCreateComponent implements OnInit {
         this.isLoading = false;
 
       if (res) {
-        this.user.id = res.data;
-      }
+        this.user.userId = res.data;
+      }        
     },
       (err: HttpErrorResponse) => {
         this.isLoading = false;
@@ -66,7 +66,6 @@ export class MirrorUserCreateComponent implements OnInit {
     this.companiesSubscription = merge().pipe(
       startWith({}),
       switchMap(() => {
-        this.isLoading = true;
 
         return this.mirrorUserService.getCompanies().pipe(
           catchError((err: HttpErrorResponse) => {
