@@ -17,7 +17,7 @@
     },
     "action": {
         "filter": "Filtra",
-        "refreshPage": "Carica di nuovo"
+        "refreshPage": "Aggiorna pagina"
     },
     "message": {
         "success": {

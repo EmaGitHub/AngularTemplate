@@ -23,4 +23,8 @@ export class StatusMessageComponent implements OnInit {
       this.level = "err";
   }
 
+  refresh() {
+    window.location.reload();  
+  }
+
 }

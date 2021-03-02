@@ -5,6 +5,9 @@
                 <i class="fa" [ngClass]="(level=='warn')?'fa-warning':'fa-exclamation-circle'"></i>
             </div>
             <div class="label">{{ message | translate}}</div>
+            <div class="refresh-div">
+                <button mat-raised-button (click)="refresh()">{{'action.refreshPage' | translate}}</button>
+            </div>
         </div>
     </div>
 </div>
