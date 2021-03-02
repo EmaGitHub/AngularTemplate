@@ -2,15 +2,18 @@
     "label": {
         "welcome": "Ectx Admin",
         "hello": "Benvenuto",
-        "accessTo": "accedi a",
-        "companyData": "Dati societari",
-        "fileGroups": "Portafogli",
         "customers": "Clienti",
         "language": "Lingua",
+        "search": "Ricerca",
         "user": "Utente",
         "extUsers": "Utenti esterni",
         "enter": "Entra",
-        "exit": "Esci"
+        "exit": "Esci",
+
+        "companyData": "Dati societari",
+        "searchMirrorUser": "Ricerca utente esterno",
+
+        "fileGroups": "Portafogli"
     },
     "action": {
         "filter": "Filtra",

@@ -98,14 +98,19 @@ export class MirrorUserCreateComponent implements OnInit {
 
   createUser(user: MirrorUser) {
     console.log("creating user "+JSON.stringify(user));
-    this.mirrorUserService.createUser(user).subscribe(
+    this.isLoading = true;
+    setTimeout(() => {
+      
+      this.isLoading = false;
+    }, 2000);
+    /* this.mirrorUserService.createUser(user).subscribe(
       (res: any) => {
 
       },
       (err: Error) => {
 
       }
-    )
+    ) */
   }
 
 }

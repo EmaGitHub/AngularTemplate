@@ -27,59 +27,90 @@ import { trigger, style, transition, animate } from '@angular/animations';
 })
 export class MirrorUserListComponent implements OnInit {
 
-  formTitle: String = "Ricerca utente esterno";
-  buttonLabel: String = "Cerca";
+  isLoading: boolean = false;
+  error: boolean = false;
+
+  user: MirrorUser = new MirrorUser;
+  companies: Company[];
+  selectedCompany: Company;
 
   mirrorUsersList: MirrorUser[];
   resultDivVisible: boolean = false;
-  isLoading: boolean = false;
 
-  companies: Company[];
-
+  private companiesSubscription: Subscription;
   private mirrorUsersSubscription: Subscription;
 
   constructor(private mirrorUserService: MirrorUserService, private utilService: UtilService) { }
 
   ngOnInit(): void {
-  }
-
-  submit() {
-    this.mirrorUsersSubscription = merge().pipe(
+    this.companiesSubscription = merge().pipe(
       startWith({}),
       switchMap(() => {
-        this.resultDivVisible = true;
-        this.isLoading = true;
 
-        return this.mirrorUserService.findUsers(1).pipe(
+        return this.mirrorUserService.getCompanies().pipe(
           catchError((err: HttpErrorResponse) => {
-            console.error('error loading mirror users', err);
+            console.error('error loading companies ', err);
 
             this.utilService.manageRestResponseError(err);
-
             this.isLoading = false;
-
+            this.error = true;
             return of(null);
           })
         );
       })
-    ).subscribe((res: RestResponse<MirrorUser>) => {
-
-      
-      setTimeout(() => {
-          
-        console.log('success on load mirror users', res);
+    ).subscribe((res: RestResponse<Company[]>) => {
+      console.log('success on load companies ', res);
         this.isLoading = false;
-        if (res) {
-          console.log("USER RES "+JSON.stringify(res))
-        }
 
-      }, 1000);
-
+      if (res) {
+        this.companies = res.data;
+      }
     },
       (err: HttpErrorResponse) => {
         this.isLoading = false;
+        this.error = true;
         this.utilService.manageRestResponseError(err);
       }
     );
+  }
+
+  submit() {
+    if (this.selectedCompany) {
+      this.mirrorUsersSubscription = merge().pipe(
+        startWith({}),
+        switchMap(() => {
+          this.resultDivVisible = true;
+          this.isLoading = true;
+
+          return this.mirrorUserService.findUsers(1).pipe(
+            catchError((err: HttpErrorResponse) => {
+              console.error('error loading mirror users', err);
+
+              this.utilService.manageRestResponseError(err);
+
+              this.isLoading = false;
+
+              return of(null);
+            })
+          );
+        })
+      ).subscribe((res: RestResponse<MirrorUser>) => {
+
+        setTimeout(() => {    
+          console.log('success on load mirror users', res);
+          this.isLoading = false;
+          if (res) {
+            console.log("USER RES "+JSON.stringify(res))
+          }
+
+        }, 2000);
+
+      },
+        (err: HttpErrorResponse) => {
+          this.isLoading = false;
+          this.utilService.manageRestResponseError(err);
+        }
+      );
+    }
   }
 }
