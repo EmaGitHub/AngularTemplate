@@ -5,7 +5,10 @@
         <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <form>
+
+            <app-status-message  *ngIf="error" [message]="'message.error.genericError'"></app-status-message>
+
+            <form *ngIf="!error">
                 <mat-form-field appearance="fill" class="select-company">
                     <mat-label>Società investitrice di appartenenza</mat-label>
                     <mat-select [(ngModel)]="selectedCompany" name="selectedCompany">               
