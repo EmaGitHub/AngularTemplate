@@ -12,12 +12,13 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoreModule } from './core/core.module';
 import { AppInitService } from './core/services/general-config/app-init.service';
-import { AppHttpInterceptor } from './core/interceptors/app-http-interceptor';
 import { SharedModule } from './shared/shared.module';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { LoginComponent } from './pages/account/login/login.component';
 import { RegisterComponent } from './pages/account/register/register.component';
 import { WelcomeComponent } from './pages/account/welcome/welcome.component';
+import { JwtInterceptor } from './core/http-utils/HttpInterceptor';
+import { ErrorInterceptor } from './core/http-utils/ErrorInterceptor';
 
 // ngx-translate - required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       deps: [AppInitService]
     },
     // http interceptor
-    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: MatPaginatorIntl, useClass: MatPaginatorI18nService },
   ],
   bootstrap: [

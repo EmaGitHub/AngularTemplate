@@ -1,20 +1,12 @@
-import { HttpClientService } from './../http-client.service';
+import { HttpClientService } from '../../http-utils/http-client.service';
 import { User } from 'src/app/shared/model/user.model';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { RestResponse } from 'src/app/shared/domain/http/rest-response';
 import { EnvironmentService } from '../general-config/environment.service';
 
 @Injectable()
 export class UserService {
 
     constructor(private environmentService: EnvironmentService, private httpClientService: HttpClientService) { }
-
-    public findLoggedUserData(): Observable<RestResponse<User>> {
-        const url = this.environmentService.environment.apiUserManager + `/login-data`;
-        console.log(`HTTP GET ${url}`);
-        return this.httpClientService.getWithRetry<RestResponse<User>>(url, 3);
-    }
 
     public saveUserDataInLocalStorage(user: User) {
         localStorage.setItem('user-name', user.name);

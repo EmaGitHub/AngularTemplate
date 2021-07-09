@@ -7,5 +7,5 @@ const apiBaseUrl = '';
 export const environment: Environment = {
   production: true,
   debuglevel: 'error',
-  apiUserManager: `${apiBaseUrl}/ectx-user-manager-srv`
+  apiUrl: ''
 };

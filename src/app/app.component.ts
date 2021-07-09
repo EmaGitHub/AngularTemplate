@@ -1,19 +1,10 @@
 import { Router, NavigationStart } from '@angular/router';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Lang } from './shared/domain/enums/lang';
-import { MessageService } from 'primeng/api';
-import { LanguageService } from './core/services/general-config/language.service';
 import { ModalComponent } from './shared/components/modal/modal.component';
-import { ModalMessageService } from './core/services/utils/modal-message.service';
-import { RestResponse } from './shared/domain/http/rest-response';
-import { UserService } from './core/services/utils/user.service';
-import { catchError, map } from 'rxjs/operators';
-import { UtilService } from './core/services/utils/util.service';
-import { of, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { SideMenuService } from './core/services/utils/side-menu.service';
-import { User } from './shared/model/user.model';
 
 @Component({
   selector: 'app-root',
@@ -28,17 +19,11 @@ export class AppComponent implements OnInit {
 
   private refreshSubscription: Subscription;
   private userSubscription: Subscription;
-  private toastMessagesSubscription: Subscription;
-  private expiredSessionMessagesSubscription: Subscription;
-  private logoutMessageSubscription: Subscription;
 
   public logoutSuccessed: boolean;
 
   constructor(private translate: TranslateService,
     private router: Router,
-    private modalMessageService: ModalMessageService,
-    private userService: UserService,
-    private utilService: UtilService,
     private sideMenuService: SideMenuService) {
     this.initTranslateDate();
     this.initDefaultLanguage();

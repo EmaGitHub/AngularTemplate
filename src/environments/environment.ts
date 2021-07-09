@@ -6,8 +6,8 @@ import { Environment } from 'src/app/shared/domain/utils/environment.model';
 
 export const environment: Environment = {
   production: false,
+  apiUrl: 'api/',
   debuglevel: 'info',
-  apiUserManager: '/ectx-user-manager-srv'
 };
 
 /*
