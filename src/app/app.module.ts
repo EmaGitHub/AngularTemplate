@@ -12,13 +12,12 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoreModule } from './core/core.module';
 import { AppInitService } from './core/services/general-config/app-init.service';
-import { LoginComponent } from './pages/login/login.component';
 import { AppHttpInterceptor } from './core/interceptors/app-http-interceptor';
 import { SharedModule } from './shared/shared.module';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { FileGroupModule } from './pages/base/mirror-admin/file-group/file-group.module';
-import { MirrorUserModule } from './pages/base/mirror-admin/mirror-user/mirror-user.module';
+import { LoginComponent } from './pages/account/login/login.component';
+import { RegisterComponent } from './pages/account/register/register.component';
+import { WelcomeComponent } from './pages/account/welcome/welcome.component';
 
 // ngx-translate - required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,9 +29,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     BaseComponent,
     // *pages
+    WelcomeComponent,
     LoginComponent,
-    WelcomeComponent
-  ],
+    RegisterComponent  ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -43,9 +42,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     // **UTENTI
-    MirrorUserModule,
-    // **LOTTI
-    FileGroupModule,
     // *ngx-translate
     TranslateModule.forRoot({
       loader: {

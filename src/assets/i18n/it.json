@@ -1,19 +1,16 @@
 {
     "label": {
-        "welcome": "Ectx Admin",
-        "hello": "Benvenuto",
+        "title": "Gestione competenze",
         "customers": "Clienti",
         "language": "Lingua",
-        "search": "Ricerca",
         "user": "Utente",
-        "extUsers": "Utenti esterni",
-        "enter": "Entra",
+        "name": "Nome",
+        "lastName": "Cognome",
+        "access": "Accedi",
         "exit": "Esci",
-
-        "companyData": "Dati societari",
-        "searchMirrorUser": "Ricerca utente esterno",
-
-        "fileGroups": "Portafogli"
+        "register": "Registrati",
+        "registerLabel": "Non hai un'account? Registrati",
+        "loginLabel": "Vai al tab di login"
     },
     "action": {
         "filter": "Filtra",

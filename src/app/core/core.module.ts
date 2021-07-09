@@ -4,7 +4,6 @@ import { UtilService } from './services/utils/util.service';
 import { UserService } from './services/utils/user.service';
 import { SideMenuService } from './services/utils/side-menu.service';
 import { MatPaginatorI18nService } from './services/utils/mat-paginator-i18n.service';
-import { TestService } from './services/utils/test.service';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { TestService } from './services/utils/test.service';
     UserService,
     TokenService,
     SideMenuService,
-    MatPaginatorI18nService,
-    TestService
+    MatPaginatorI18nService
   ],
   exports: [
   ]

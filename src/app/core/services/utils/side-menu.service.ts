@@ -2,7 +2,6 @@ import { LeftMenuLink } from './../../../shared/domain/components/left-menu-link
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LeftMenuLinkComponent } from 'src/app/shared/components/left-menu-link/left-menu-link.component';
 
 @Injectable()
 export class SideMenuService {

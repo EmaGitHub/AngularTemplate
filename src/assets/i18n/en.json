@@ -1,16 +1,16 @@
 {
     "label": {
-        "welcome": "Findomestic",
-        "hello": "Welcome",
-        "accessTo": "access to",
-        "companyData": "Company data",
-        "fileGroups": "Portfolio",
+        "title": "Skills management",
         "customers": "Customers",
         "language": "Language",
         "user": "User",
-        "extUsers": "External users",
-        "enter": "Enter",
-        "exit": "Exit"
+        "name": "Name",
+        "lastName": "Last name",
+        "access": "Access",
+        "exit": "Exit",
+        "register": "Register",
+        "registerLabel": "Do not have any account? Sign-up",
+        "loginLabel": "Go to login tab"
     },
     "action": {
         "filter": "Filter"

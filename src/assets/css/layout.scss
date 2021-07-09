@@ -13,8 +13,9 @@ html {
     body {
         margin: 0;
         color: #7a7d82;
-        background-image: linear-gradient(#04a3e21c, #000d4826);        
+        background-image: linear-gradient(#0d6f9645, #000d4826);     
         font-family: Roboto, "Helvetica Neue", sans-serif;
+        overflow: scroll;
     }
     
     aside, footer, header, main, nav {
@@ -162,15 +163,14 @@ html {
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            background-color: #115f8e;
+            background-color: #f3f3f3;
             border-bottom: 1px solid white;
 
 
             .inner {
-
                 .logo-img {
-                    width: 152px;
-                    height: 56px;
+                    width: 130px;
+                    height: 35px;
                 }
             }
         }

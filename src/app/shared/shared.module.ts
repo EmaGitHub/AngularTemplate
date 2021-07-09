@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // primeng
-import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { DialogModule } from 'primeng/dialog';
@@ -22,9 +21,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
@@ -60,10 +61,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoggedUserComponent } from './components/logged-user/logged-user.component';
 import { LogoutModalComponent } from './components/modal/logout-modal/logout-modal.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { OnlyNumberDirective } from './directives/only-number.directive';
 import { StatusMessageComponent } from './components/status-message/status-message.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // ngx-translate - AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -109,7 +108,6 @@ const APP_CUSTOM_DATE_FORMATS = {
     LogoutModalComponent,
     LoggedUserComponent,
     StatusMessageComponent,
-    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -129,7 +127,6 @@ const APP_CUSTOM_DATE_FORMATS = {
       }
     }),
     // *primeng
-    ToastModule,
     OverlayPanelModule,
     DialogModule,
     TooltipModule,
@@ -152,8 +149,7 @@ const APP_CUSTOM_DATE_FORMATS = {
     MatSelectModule,
     MatCheckboxModule,
     MatButtonToggleModule,
-    // 
-    PdfViewerModule
+    MatFormFieldModule,
   ],
   exports: [
     BrowserModule,
@@ -183,7 +179,6 @@ const APP_CUSTOM_DATE_FORMATS = {
     NoDatePipe,
     PercentagePipe,
     // *primeng
-    ToastModule,
     OverlayPanelModule,
     DialogModule,
     TooltipModule,
@@ -205,16 +200,13 @@ const APP_CUSTOM_DATE_FORMATS = {
     MatSelectModule,
     MatCheckboxModule,
     MatButtonToggleModule,
-    //
-    PdfViewerModule,
     // *components
     PaginatorComponent,
     ModalComponent,
     ExpiredSessionModalComponent,
     LogoutModalComponent,
     LoggedUserComponent,
-    StatusMessageComponent,
-    SpinnerComponent
+    StatusMessageComponent
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'it-IT' },
@@ -224,6 +216,8 @@ const APP_CUSTOM_DATE_FORMATS = {
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: APP_CUSTOM_DATE_FORMATS },
     { provide: MessageService, useClass: MessageService },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} },
     // *pipes
     TranslatePipe,
     // *app pipes
