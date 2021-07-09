@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   email: string;
   username: string; 
   password: string;
+  systemAdmin: boolean = false;
 
   @Output('selectedTabIndex') 
   selectedTabIndex: EventEmitter<number> = new EventEmitter<number>();
