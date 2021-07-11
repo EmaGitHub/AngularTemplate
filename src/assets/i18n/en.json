@@ -4,7 +4,7 @@
         "customers": "Customers",
         "language": "Language",
         "user": "User",
-        "name": "Name",
+        "first_name": "First name",
         "lastName": "Last name",
         "access": "Access",
         "exit": "Exit",
