@@ -1,5 +1,5 @@
 {
-  "name": "app-ectx-admin",
+  "name": "skills-management",
   "version": "1.2.2",
   "scripts": {
     "ng": "ng",

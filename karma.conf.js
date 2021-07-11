@@ -16,8 +16,8 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/app-ectx-admin'),
-      reports: ['html', 'lcovonly', 'text-summary'], // app-ectx-admin
+      dir: require('path').join(__dirname, './coverage/skills-management'),
+      reports: ['html', 'lcovonly', 'text-summary'], // skills-management
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],

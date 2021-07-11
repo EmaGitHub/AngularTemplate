@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app-ectx-admin": {
+    "skills-management": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app-ectx-admin",
+            "outputPath": "dist/skills-management",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -151,19 +151,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app-ectx-admin:build",
+            "browserTarget": "skills-management:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "app-ectx-admin:build:prod"
+              "browserTarget": "skills-management:build:prod"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app-ectx-admin:build"
+            "browserTarget": "skills-management:build"
           }
         },
         "test": {
@@ -201,18 +201,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app-ectx-admin:serve"
+            "devServerTarget": "skills-management:serve"
           },
           "configurations": {
             "prod": {
-              "devServerTarget": "app-ectx-admin:serve:prod"
+              "devServerTarget": "skills-management:serve:prod"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "app-ectx-admin",
+  "defaultProject": "skills-management",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
