@@ -1,31 +1,29 @@
-import { HttpClientService } from '../../http-utils/http-client.service';
-import { User } from 'src/app/shared/model/user.model';
 import { Injectable } from '@angular/core';
-import { EnvironmentService } from '../general-config/environment.service';
+import { User } from 'src/app/pages/account/models/User';
 
 @Injectable()
 export class UserService {
 
-    constructor(private environmentService: EnvironmentService, private httpClientService: HttpClientService) { }
+    constructor() { }
 
     public saveUserDataInLocalStorage(user: User) {
-        localStorage.setItem('user-name', user.name);
-        localStorage.setItem('user-surname', user.surname);
-        localStorage.setItem('user-id', user.userId);
+        localStorage.setItem('user-first-name', user.firstName);
+        localStorage.setItem('user-last-name', user.lastName);
+        localStorage.setItem('user-id', String(user.userId));
         return true;
     }
 
     public getUser(): User {
         const user = {} as User;
-        user.name = localStorage.getItem('user-name');
-        user.surname = localStorage.getItem('user-surname');
-        user.userId = localStorage.getItem('user-id');
+        user.firstName = localStorage.getItem('user-first-name');
+        user.lastName = localStorage.getItem('user-last-name');
+        user.userId = Number(localStorage.getItem('user-id'));
         return user;
     }
 
     public getFullName(): string {
-        const first: string = localStorage.getItem('user-name');
-        const last: string = localStorage.getItem('user-surname');
+        const first: string = localStorage.getItem('user-first-name');
+        const last: string = localStorage.getItem('user-last-name');
         if (first || last) {
             return `${first} ${last}`
         }

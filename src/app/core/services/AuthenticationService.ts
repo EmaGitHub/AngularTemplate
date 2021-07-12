@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { User } from 'src/app/shared/model/user.model';
+import { User } from 'src/app/pages/account/models/User';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -38,15 +38,21 @@ export class AuthenticationService {
            };
         return this.http.post<any>("public/authenticate", body)
             .pipe(
-                map(user => {
-                    // login successful if there's a jwt token in the response
-                    if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.currentUserSubject?.next(user);
-                }
-                return user;
-            }
+                map(
+                    resp => {
+                        console.log("RESP ",resp)
+                        // login successful if there's a jwt token in the response
+                        if (resp && resp.token) {
+                            // store user details and jwt token in local storage to keep user logged in between page refreshes
+                            localStorage.setItem('currentUser', JSON.stringify(resp));
+                            this.currentUserSubject?.next(resp);
+                        }
+                        return resp;
+                    },
+                    catchError(err => {
+                        console.log("ERR ",err)
+                        return err;
+                })
             )
         )
     }

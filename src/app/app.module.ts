@@ -14,11 +14,10 @@ import { CoreModule } from './core/core.module';
 import { AppInitService } from './core/services/general-config/app-init.service';
 import { SharedModule } from './shared/shared.module';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { LoginComponent } from './pages/account/login/login.component';
-import { RegisterComponent } from './pages/account/register/register.component';
-import { WelcomeComponent } from './pages/account/welcome/welcome.component';
 import { JwtInterceptor } from './core/http-utils/HttpInterceptor';
 import { ErrorInterceptor } from './core/http-utils/ErrorInterceptor';
+import { AccountModule } from './pages/account/account.module';
+import { HomeComponent } from './pages/home/home.component';
 
 // ngx-translate - required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,10 +28,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     BaseComponent,
+    HomeComponent,
     // *pages
-    WelcomeComponent,
-    LoginComponent,
-    RegisterComponent  ],
+  ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -43,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     // **UTENTI
+    AccountModule,
     // *ngx-translate
     TranslateModule.forRoot({
       loader: {

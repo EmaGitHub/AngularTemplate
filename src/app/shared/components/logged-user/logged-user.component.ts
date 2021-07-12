@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { User } from '../../model/user.model';
 import { UserService } from 'src/app/core/services/utils/user.service';
 import { UtilService } from 'src/app/core/services/utils/util.service';
+import { User } from 'src/app/pages/account/models/User';
 
 @Component({
   selector: 'app-logged-user',

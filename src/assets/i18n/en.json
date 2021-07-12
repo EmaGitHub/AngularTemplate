@@ -17,6 +17,8 @@
     },
     "message": {
         "success": {
+            "userCreated": "User created successfully",
+            "loginSucceded": "Login succeeded",
             "loadSuccessed": "Load successed",
             "logoutSuccessed": "Logout successed"
         },
@@ -25,7 +27,8 @@
         },
         "error": {
             "error": "Error",
-            "genericError": "Error happened",
+            "wrongCredentials": "Credentials are not valid",
+            "genericError": "Something goes wrong",
             "loginFailed": "Login failed",
             "dataInconsistencyError": "Data inconsistency error",
             "logoutFailed": "Logout failed"

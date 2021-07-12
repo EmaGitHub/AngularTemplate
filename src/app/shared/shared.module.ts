@@ -63,6 +63,7 @@ import { LoggedUserComponent } from './components/logged-user/logged-user.compon
 import { LogoutModalComponent } from './components/modal/logout-modal/logout-modal.component';
 import { OnlyNumberDirective } from './directives/only-number.directive';
 import { StatusMessageComponent } from './components/status-message/status-message.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // ngx-translate - AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -108,6 +109,7 @@ const APP_CUSTOM_DATE_FORMATS = {
     LogoutModalComponent,
     LoggedUserComponent,
     StatusMessageComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

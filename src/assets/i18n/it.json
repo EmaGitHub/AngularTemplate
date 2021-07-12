@@ -18,14 +18,17 @@
     },
     "message": {
         "success": {
-            "loadSuccessed": "Caricamento avvenuto con successo",
-            "logoutSuccessed": "Disconnessione avvenuta con successo"
+            "userCreated": "Utente creato",
+            "loginSucceeded": "Login avvenuto con successo",
+            "loadSucceded": "Caricamento avvenuto con successo",
+            "logoutSucceded": "Disconnessione avvenuta con successo"
         },
         "warn": {
             "noDataFound": "Nessun dato trovato"
         },
         "error": {
             "error": "Errore",
+            "wrongCredentials": "Credenziali non valide",
             "genericError": "Si e' verificato un errore",
             "loginFailed": "Login fallita",
             "dataInconsistencyError": "Errore di inconsistenza dati",

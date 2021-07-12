@@ -1,11 +1,12 @@
 {
-  "/ectx-user-manager-srv/*": {
-    "target": "http://localhost:8086",
+  "/public/**": {
+    "target": "http://localhost:8080",
     "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/ectx-user-manager-srv": ""
-    }
+    "logLevel": "debug"
+  },
+  "/api/**": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
   }
 }
